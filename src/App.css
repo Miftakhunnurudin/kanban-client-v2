@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-primary-color{
+  background-color: red;
+}
+
+.navbar{
+  padding: .5rem 1.5rem .5rem 1.5rem !important;
+}
