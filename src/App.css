@@ -38,9 +38,24 @@
 }
 
 .navbar-primary-color{
-  background-color: red;
+  background-color: #DC4C41;
 }
 
 .navbar{
   padding: .5rem 1.5rem .5rem 1.5rem !important;
+}
+
+.bg-search{
+  background: #E36F66;
+  border-radius: 5px;
+}
+
+input[type=search] {
+  background-color: transparent;
+  border: 0;
+  color: snow;
+}
+
+input[type=search]:focus {
+  outline: none;
 }
