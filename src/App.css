@@ -1,5 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html,body, #root{
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  font-family: 'Roboto';
+  height: 100%;
 }
 
 .App-logo {
@@ -54,8 +62,62 @@ input[type=search] {
   background-color: transparent;
   border: 0;
   color: snow;
+  font-size: 14px;
 }
 
 input[type=search]:focus {
   outline: none;
+}
+
+.sidebar{
+  background-color: #FBFAFB;
+  height: 100%;
+  width: 300px;
+  color: #6F6F6F;
+}
+
+ul li {
+  line-height: 3em;
+  list-style-type: none;
+  text-align: left;
+  display: block;
+}
+
+.board {
+  padding: 30px;
+  height: 100%;
+  width: 100%;
+}
+
+h6 {
+  text-align: left;
+  font-weight: bold !important;
+}
+
+.item {
+  border-radius: 10px;
+  background-color: #fff7f6;
+}
+
+.add {
+  background-color: #ffdada;
+  border-radius: 5px;
+}
+
+.card {
+  text-align: left;
+  border: 0 !important;
+}
+
+.card-text {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+/* .card-body {
+  padding: 14px !important;
+} */
+
+.card-title {
+  font-weight: bold;
 }
