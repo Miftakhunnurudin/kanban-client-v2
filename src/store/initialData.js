@@ -25,7 +25,7 @@ export const initialData = {
         'c2': {
             id: 'c2',
             title: 'Doing',
-            taskIds: ['3']
+            taskIds: []
         },
         'c3': {
             id: 'c3',

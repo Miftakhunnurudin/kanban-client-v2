@@ -3,6 +3,7 @@ import Icon from '@mdi/react';
 import { useState } from 'react';
 import { initialData } from '../store/initialData';
 import Column from './Column';
+import {DragDropContext} from 'react-beautiful-dnd'
 
 function Board () {
     // eslint-disable-next-line
@@ -23,9 +24,11 @@ function Board () {
                     </div>
                 </div>
                 <div className="row align-items-start h-100 pb-3">
-                    {
-                        data.columnOrder.map(columnId => <Column key={columnId} columnData={data.column[columnId]}/>)
-                    }
+                    <DragDropContext>
+                        {
+                            data.columnOrder.map(columnId => <Column key={columnId} columnData={data.column[columnId]}/>)
+                        }
+                    </DragDropContext>
                 </div>
             </div>
         </>
