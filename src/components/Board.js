@@ -10,6 +10,39 @@ function Board () {
     const [data, setData] = useState(initialData)
     const sizeIcon = 0.9
     const colorIcon = '#6F6F6F'
+
+    const onDragEnd = (result) => {
+        // console.log(result)
+        const {destination, source, draggableId } = result;
+
+        if(!destination) {
+          return;
+        }
+      
+        if (destination.droppableId === source.droppableId && destination.index === source.index) {
+          return;
+        }
+      
+        const column = data.column[source.droppableId];
+        const newTaskIds = Array.from(column.taskIds);
+        newTaskIds.splice(source.index, 1);
+        newTaskIds.splice(destination.index, 0, draggableId);
+      
+        const newColumn = {
+          ...column,
+          taskIds: newTaskIds,
+        };
+      
+        const newState = {
+          ...data,
+          column: {
+            ...data.column,
+            [newColumn.id]: newColumn,
+          },
+        };
+      
+        setData(newState)
+    }
     return (
         <>
             <div className="board">
@@ -24,7 +57,7 @@ function Board () {
                     </div>
                 </div>
                 <div className="row align-items-start h-100 pb-3">
-                    <DragDropContext>
+                    <DragDropContext onDragEnd={onDragEnd}>
                         {
                             data.columnOrder.map(columnId => <Column key={columnId} columnData={data.column[columnId]}/>)
                         }

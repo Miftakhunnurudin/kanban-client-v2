@@ -1,5 +1,5 @@
 import {mdiPlus} from '@mdi/js';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { initialData } from '../store/initialData';
 import { Droppable } from 'react-beautiful-dnd'
 import Icon from '@mdi/react';
@@ -8,12 +8,18 @@ import Card from './Card'
 function Column (props) {
     // eslint-disable-next-line
     const [task, setTask] = useState(initialData.task)
+    const [colWidth, setColWidth] = useState(null)
     const sizeIcon = 0.9
     const {title,taskIds, id} = props.columnData
-    console.log('key column ',id)
+    const columnRef = useCallback(node => {
+        if (node !== null) {
+          setColWidth(node.getBoundingClientRect().width);
+        }
+      }, []);
+    // console.log('key column ',id)
     return (
         <>
-            <div className="col-md-4 col-sm-12 mb-2">
+            <div className="col-md-4 col-sm-12 mb-2" ref={columnRef}>
                 <div className="p-3 item">
                     <div>
                         <h6>{title}</h6>
@@ -28,7 +34,7 @@ function Column (props) {
                     <Droppable droppableId={id}>
                         { (provided) =>
                             <div {...provided.droppableProps} ref={provided.innerRef}>
-                                {taskIds?.map( (taskId, index) => <Card key={taskId} task={task[taskId]} index={index}/>)}
+                                {taskIds?.map( (taskId, index) => <Card key={taskId} task={task[taskId]} index={index} colWidth={colWidth}/>)}
                                 {provided.placeholder}
                             </div>
                         }
