@@ -22,26 +22,55 @@ function Board () {
         if (destination.droppableId === source.droppableId && destination.index === source.index) {
           return;
         }
-      
-        const column = data.column[source.droppableId];
-        const newTaskIds = Array.from(column.taskIds);
-        newTaskIds.splice(source.index, 1);
-        newTaskIds.splice(destination.index, 0, draggableId);
-      
-        const newColumn = {
-          ...column,
-          taskIds: newTaskIds,
+        const start = data.column[source.droppableId];
+        const finish = data.column[destination.droppableId];
+
+        if (start.id === finish.id) {
+          const newTaskIds = Array.from(start.taskIds);
+          newTaskIds.splice(source.index, 1);
+          newTaskIds.splice(destination.index, 0, draggableId);
+        
+          const newColumn = {
+            ...finish,
+            taskIds: newTaskIds,
+          };
+        
+          const newState = {
+            ...data,
+            column: {
+              ...data.column,
+              [newColumn.id]: newColumn,
+            },
+          };
+        
+          setData(newState)
+          // console.log(newState,"same column");
+          return ;
+        }
+        const startTaskIds = Array.from(start.taskIds);
+        startTaskIds.splice(source.index, 1);
+        const newStart = {
+          ...start,
+          taskIds: startTaskIds,
         };
-      
+
+        const finishTaskIds = Array.from(finish.taskIds);
+        finishTaskIds.splice(destination.index, 0, draggableId);
+        const newFinish = {
+          ...finish,
+          taskIds: finishTaskIds,
+        };
+
         const newState = {
           ...data,
           column: {
             ...data.column,
-            [newColumn.id]: newColumn,
+            [newStart.id]: newStart,
+            [newFinish.id]: newFinish,
           },
         };
-      
         setData(newState)
+        // console.log(newState,"different column");
     }
     return (
         <>

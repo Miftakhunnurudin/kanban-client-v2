@@ -2,12 +2,12 @@ import {Draggable} from 'react-beautiful-dnd'
 
 function Card (props) {
     const {title,content,id} = props.task
-    const {index, colWidth} = props
+    const {index} = props
     // console.log('props task', id)
     return(
         <>
             <Draggable draggableId={id} index={index}>
-                {(provided, snapshot) => (
+                {(provided) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}

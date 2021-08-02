@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import '../node_modules/react-big-calendar/lib/css/react-big-calendar.css';
 
 html,body, #root{
   height: 100%;
@@ -110,7 +111,7 @@ h6 {
   text-align: left;
   border: 0 !important;
   width: inherit !important;
-  max-width: 250px;
+  max-width: 300px;
 }
 
 .card-text {

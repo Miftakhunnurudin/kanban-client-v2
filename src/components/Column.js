@@ -16,7 +16,7 @@ function Column (props) {
           setColWidth(node.getBoundingClientRect().width);
         }
       }, []);
-    // console.log('key column ',id)
+    // console.log(task)
     return (
         <>
             <div className="col-md-4 col-sm-12 mb-2" ref={columnRef}>

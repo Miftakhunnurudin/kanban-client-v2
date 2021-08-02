@@ -1,31 +1,31 @@
 export const initialData = {
     'task': {
-        '1': {
-            id: '1',
-            title: 'Development',
-            content: 'In order to develop we must care'
+        't1': {
+            id: 't1',
+            title: 'Manusia',
+            content: 'Manusia atau orang dapat diartikan berbeda-beda dari segi biologis, rohani, dan istilah kebudayaan, atau secara campuran. Secara biologis, manusia diklasifikasikan sebagai Homo sapiens, sebuah spesies primata dari golongan mamalia yang dilengkapi otak berkemampuan tinggi.'
         },
-        '2': {
-            id: '2',
-            title: 'Developed',
-            content: 'In developed country there\'s people that support it'
+        't2': {
+            id: 't2',
+            title: 'Hewan',
+            content: 'Hewan, binatang, fauna, margasatwa, atau satwa adalah organisme eukariotik multiseluler yang membentuk kerajaan biologi Animalia.'
         },
-        '3': {
-            id: '2',
-            title: 'Undevelop',
-            content: 'I don\'t know what to do'
+        't3': {
+            id: 't3',
+            title: 'Tumbuhan',
+            content: 'Dalam biologi, tumbuhan adalah organisme eukariota multiseluler yang tergolong ke dalam kerajaan Plantae. Di dalamnya terdiri atas beberapa klad yakni, tanaman berbunga, Gymnospermae atau Tumbuhan berbiji terbuka, Lycopodiopsida, paku-pakuan, lumut, serta sejumlah alga hijau.'
         }
     },
     'column': {
         'c1': {
             id: 'c1',
             title: 'To Do',
-            taskIds: ['1','2']
+            taskIds: ['t1','t2']
         },
         'c2': {
             id: 'c2',
             title: 'Doing',
-            taskIds: []
+            taskIds: ['t3']
         },
         'c3': {
             id: 'c3',
