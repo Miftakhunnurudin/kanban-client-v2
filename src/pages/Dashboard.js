@@ -4,7 +4,7 @@ import Board from '../components/Board'
 function Dashboard () {
     return (
         <div className='d-flex h-100'>
-            <Sidebar/>
+            {/* <Sidebar/> */}
             <Board/>
             {/* <CalendarView/> */}
         </div>

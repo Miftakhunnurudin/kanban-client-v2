@@ -76,7 +76,7 @@ function Board () {
         <>
             <div className="board">
                 <div className="d-flex justify-content-between">
-                    <h2>Title</h2>
+                    <h2>Testing</h2>
                     <div>
                         <Icon path={mdiAccountGroupOutline}
                           size = {sizeIcon}
