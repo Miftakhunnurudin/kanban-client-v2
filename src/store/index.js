@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
-import logger from '../middlewares/logger'
+import logger from './middlewares/logger'
 import kanbanReducer from './reducers/kanbanReducer'
 
 const rootReducer = combineReducers({

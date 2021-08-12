@@ -1,15 +1,28 @@
 import {mdiAccountGroupOutline} from '@mdi/js';
 import Icon from '@mdi/react';
-import { useState } from 'react';
-import { initialData } from '../store/initialData';
+import { useState, useEffect } from 'react';
 import Column from './Column';
 import {DragDropContext} from 'react-beautiful-dnd'
+import {useSelector, useDispatch} from 'react-redux'
+import fetchKanbans from '../store/actions/fetchKanbans';
 
 function Board () {
     // eslint-disable-next-line
-    const [data, setData] = useState(initialData)
+    const {kanbans, loading} = useSelector(state => state.kanbans)
+    const [data, setData] = useState(kanbans)
+    const dispatch = useDispatch()
     const sizeIcon = 0.9
     const colorIcon = '#6F6F6F'
+
+    useEffect(()=>{
+      dispatch(fetchKanbans())
+      // eslint-disable-next-line
+    },[])
+
+    useEffect(()=>{
+      setData(kanbans)
+      console.log('kanbaaan')
+    },[kanbans])
 
     const onDragEnd = (result) => {
         // console.log(result)
@@ -74,6 +87,7 @@ function Board () {
     }
     return (
         <>
+          {!loading && (<>
             <div className="board">
                 <div className="d-flex justify-content-between">
                     <h2>Testing</h2>
@@ -88,11 +102,12 @@ function Board () {
                 <div className="row align-items-start h-100 pb-3">
                     <DragDropContext onDragEnd={onDragEnd}>
                         {
-                            data.columnOrder.map(columnId => <Column key={columnId} columnData={data.column[columnId]}/>)
+                            data.columnOrder?.map(columnId => <Column key={columnId} columnData={data.column[columnId]}/>)
                         }
                     </DragDropContext>
                 </div>
             </div>
+            </>)}
         </>
     )
 }

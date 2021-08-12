@@ -1,4 +1,4 @@
-import Sidebar from '../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 import Board from '../components/Board'
 // import CalendarView from '../components/Calendar';
 function Dashboard () {

@@ -1,13 +1,14 @@
 import {mdiPlus} from '@mdi/js';
 import { useState, useCallback } from 'react';
-import { initialData } from '../store/initialData';
+import {useSelector} from 'react-redux'
 import { Droppable } from 'react-beautiful-dnd'
 import Icon from '@mdi/react';
 import Card from './Card'
 
 function Column (props) {
     // eslint-disable-next-line
-    const [task, setTask] = useState(initialData.task)
+    const {task} = useSelector(state => state.kanbans.kanbans)
+    // const [task, setTask] = useState(initialData.task)
     const [colWidth, setColWidth] = useState(null)
     const sizeIcon = 0.9
     const {title,taskIds, id} = props.columnData

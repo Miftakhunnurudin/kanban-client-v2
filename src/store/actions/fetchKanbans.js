@@ -1,4 +1,4 @@
-import fs from 'fs'
+const axios = require('axios')
 
 export default function fetchKanbans () {
     return async (dispatch) => {
@@ -7,11 +7,11 @@ export default function fetchKanbans () {
                 type: 'FETCH_KANBANS_START'
             })
 
-            const data = fs.readFileSync('./src/store/initialData.json','utf-8')
-
+            const resp = await axios.get('./initialData.json')
+            console.log(resp)
             dispatch({
                 type: 'FETCH_KANBANS_DONE',
-                payload: data
+                payload: resp.data
             })
             
         } catch (error) {
